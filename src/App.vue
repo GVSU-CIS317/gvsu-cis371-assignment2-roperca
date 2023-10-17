@@ -1,17 +1,32 @@
 <template>
-  <header class="header">
-    <!-- TODO: Write your Store Name or Add a Logo here -->
-    <h1>Your Store Name</h1>
-  </header>
-  <nav class="nav">
-    <!-- TODO: Add more navigation links if needed -->
-    <a href="#" class="nav-item">Home</a>
-  </nav>
-  <main class="main-content">
-    <!-- TODO: Use the v-for directive to list all items here using the StoreItem component -->
-    <!-- Example: <StoreItem v-for="(item, index) in items" :key="index" :item="item" /> -->
-  </main>
-  <footer class="footer">© 2023 My Online Store. All rights reserved.</footer>
+  <div id="app" class="grid-container">
+    <header class="header">
+      <!-- TODO: Write your Store Name or Add a Logo here -->
+      <h1>coolstuff.com</h1>
+    </header>
+    <nav class="nav">
+      <!-- TODO: Add more navigation links if needed -->
+      <a href="#" class="nav-item">Home</a>
+    </nav>
+    <main class="main-content">
+      <div class="grid">
+      <!-- TODO: Use the v-for directive to list all items here using the StoreItem component -->
+      <!-- Example: <StoreItem v-for="(item, index) in items" :key="index" :item="item" /> -->
+      <StoreItem
+          v-for="(item, index) in items"
+          :key="index"
+          :name="item.name"
+          :description="item.description"
+          :price="item.price"
+          :rating="item.rating"
+          :stock="item.stock"
+          :image="item.image"
+          :category="item.category"
+          />
+      </div>
+    </main>
+    <footer class="footer">© 2023 My Online Store. All rights reserved.</footer>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -28,7 +43,7 @@ const items = ref([
     stock: 5,
     //a fake image
     image:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/sn8MOkAAAAASUVORK5CYII=",
+      "https://cloudinary-marketing-res.cloudinary.com/images/w_1000,c_scale/v1679921049/Image_URL_header/Image_URL_header-png?_i=AA",
     category: "Electronics",
   },
   // More Electronics
@@ -94,4 +109,56 @@ const items = ref([
 
 <style scoped>
 /* TODO: Insert your CSS code to style the header, nav, main content, and footer */
+
+.grid-container {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* 4 rows with specified heights */
+  grid-template-columns: 1fr; /* Single column layout */
+  min-height: 100vh; /* Full viewport height */
+}
+
+.header {
+  /* Styles for the header (narrow and at the top) */
+  grid-row: 1;
+  grid-column: 1;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav {
+  /* Styles for the navigation (narrow and below the header) */
+  grid-row: 2;
+  grid-column: 1;
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.main-content {
+  /* Styles for the main content area (takes up most of the space) */
+  grid-row: 3;
+  grid-column: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+  overflow: auto; /* Add scrollbars if content overflows */
+}
+.grid {
+  /* Styles for the grid layout */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust number of columns as needed */
+  gap: 20px; /* Adjust the gap between items */
+}
+
+.footer {
+  /* Styles for the footer (small and at the bottom) */
+  grid-row: 4;
+  grid-column: 1;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
 </style>
