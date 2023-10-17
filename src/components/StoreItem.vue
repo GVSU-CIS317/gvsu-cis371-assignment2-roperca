@@ -18,6 +18,7 @@
 
 <script lang="ts" setup>
 // TODO: Import necessary Vue methods and write your TypeScript logic here
+// eslint-disable-next-line
 const _props = defineProps({
   name: String,
   description: String,
