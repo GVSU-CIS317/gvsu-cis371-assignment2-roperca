@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 // TODO: Import necessary Vue methods and write your TypeScript logic here
-const props = defineProps({
+const _props = defineProps({
   name: String,
   description: String,
   price: Number,
