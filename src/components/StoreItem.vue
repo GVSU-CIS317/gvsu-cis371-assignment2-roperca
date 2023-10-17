@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
 // TODO: Import necessary Vue methods and write your TypeScript logic here
-// eslint-disable-next-line
-const _props = defineProps({
+// Using props to get around a wierd error: ${props}
+const props = defineProps({
   name: String,
   description: String,
   price: Number,
@@ -28,6 +28,8 @@ const _props = defineProps({
   image: String,
   category: String,
 });
+// Using props to get around a wierd error: ${props}
+console.log(props);
 </script>
 
 <style scoped>
